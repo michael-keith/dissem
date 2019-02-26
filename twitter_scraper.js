@@ -37,6 +37,10 @@ function getTweets(link) {
   client.get('search/tweets', {q: query, result_type: "recent", count: "100"} ,function(error, tweets, response) {
     if(error) {console.log(response); throw error;}
     console.log(tweets);
+    // tweets.forEach(function(tweet) {
+    //   console.log(tweet.text);
+    // });
+
   });
 }
 
@@ -44,6 +48,8 @@ setInterval(function(){ getLinks(); }, 2000);
 
 setInterval(function(){
   links.forEach( function(link) {
-    getTweets(link.link);
+
+    setInterval(function(){ getTweets(link.link) }, 5000);
+
   });
-}, 5000);
+}, 10000);
