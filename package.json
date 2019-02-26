@@ -1,0 +1,16 @@
+{
+  "name": "newser",
+  "version": "0.0.1",
+  "description": "Live news stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MK",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "xml2js": "^0.4.19"
+  }
+}
+

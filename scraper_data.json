@@ -1,0 +1,12 @@
+[
+  {
+    "source": "BBC",
+    "category": "top",
+    "url": "http://feeds.bbci.co.uk/news/rss.xml"
+  },
+  {
+    "source": "Guardian",
+    "category": "uk",
+    "url": "https://www.theguardian.com/uk/rss"
+  }
+]
