@@ -11,7 +11,7 @@ let pool  = mysql.createPool({
   host            : process.env.DB_HOST,
   user            : process.env.DB_USER,
   password        : process.env.DB_PASS,
-  database        : 'pubprop'
+  database        : 'mkeit001_dissem'
 });
 
 urls.forEach(getPage);
@@ -29,26 +29,26 @@ function getPage(data) {
 
 function checkExists(data, item) {
   let date = new Date(item.pubDate);
+  let timestamp = convert_date(date);
+
   let sql = "SELECT * FROM articles WHERE title = ? and link = ?"
   let inserts = [item.title[0], item.link];
   sql = mysql.format(sql, inserts);
   pool.query(sql, function (error, results, fields) {
     if(results[0]) { console.log( "ALREADY EXISTS: " + results[0].title ); }
-    else { addArticle(data, date, item); }
+    else { addArticle(data, date, timestamp, item); }
   })
 }
 
-function addArticle(data, date, item) {
+function addArticle(data, date, timestamp, item) {
   console.log("ADDED: " + item.title[0] + " - " + date + " - " + item.pubDate)
-  let sql = "INSERT INTO articles(source, title, link, category, date) VALUES(?,?,?,?,?)";
-  let inserts = [data.source, item.title[0], item.link, data.category, date];
+  let sql = "INSERT INTO articles(source, title, link, category, date, timestamp) VALUES(?,?,?,?,?,?)";
+  let inserts = [data.source, item.title[0], item.link, data.category, date, timestamp];
   sql = mysql.format(sql, inserts);
   pool.query(sql, function (error) {if (error) throw error;});
 }
 
-//Convert a date string to timestamp
-function convert_date(date_string) {
-  ts = new Date(Date.parse( date_string.replace( /(\w{3}), (\d{2}) (\w{3}) (\d{4}) (\d{2}):(\d{2}):(\d{2})/, "$1 $3 $2 $4 $5:$6:$7") ));
-  //return ts.getTime() / 1000
-  return ts;
+//Convert a date o timestamp
+function convert_date(date) {
+  return date.getTime() / 1000
 }
