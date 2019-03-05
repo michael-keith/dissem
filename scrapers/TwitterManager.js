@@ -10,44 +10,53 @@ let pool  = mysql.createPool({
   charset : 'utf8mb4'
 });
 
-let Twitter = require('twitter');
-let client = new Twitter({
-  consumer_key: process.env.TWITTER_CONUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-});
+const TweetCollection = require('./TweetCollection');
 
-class TweetManager() {
+class TwitterManager {
 
   constructor() {
-
   }
 
-  getLinks() {
-    let sql = "SELECT id, link FROM articles WHERE timestamp > ? LIMIT 500";
+  manage() {
+    this.getArticlesData().then(results => {
+      this.getTweetCollection().then( () => {
+        this.manage();
+      });
+    })
+  }
+
+  getArticlesData() {
+    let sql = "SELECT id, link FROM articles WHERE timestamp > ? LIMIT 2";
     let inserts = [0];
     sql = mysql.format(sql, inserts);
 
     return new Promise((resolve, reject) => {
       pool.query(sql, (error, results, fields) => {
         if (error) throw error;
+        this.articles_data = results;
         resolve(results);
       })
     });
   }
 
-  getTweetColletion(link, article_data) {
-    query = link;
-
+  getTweetCollection() {
     return new Promise((resolve, reject) => {
-      client.get('search/tweets', {q: query, result_type: "recent", count: "100", exclude:"retweets" }, function(error, tweet_colection, response) {
-        if(error) {console.log(response); throw error;}
-        resolve(results);
-      });
-    }
+      let i = 0;
+      let interval = setInterval(() => {
+        if(i >= this.articles_data.length -1) {
+          clearInterval(interval);
+          resolve();
+        }
+        console.log( i + ": " + this.articles_data[i].link );
+        let tc = new TweetCollection(this.articles_data[i]);
+        tc.manageCollection().then( () => {
+          console.log("Tweet collection promise filled.");
+        });
+        i++;
+      }, 5000);
+    });
   }
 
 }
 
-module.exports = TweetManager;
+module.exports = TwitterManager;
