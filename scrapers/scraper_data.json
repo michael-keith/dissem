@@ -1,12 +1,341 @@
 [
   {
     "source": "BBC",
-    "category": "top",
-    "url": "http://feeds.bbci.co.uk/news/rss.xml"
+    "category": "world",
+    "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
   },
+  {
+    "source": "BBC",
+    "category": "uk",
+    "url": "http://feeds.bbci.co.uk/news/uk/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "scotland",
+    "url": "http://feeds.bbci.co.uk/news/scotland/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "wales",
+    "url": "http://feeds.bbci.co.uk/news/wales/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "northern ireland",
+    "url": "http://feeds.bbci.co.uk/news/northern_ireland/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "business",
+    "url": "http://feeds.bbci.co.uk/news/business/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "politics",
+    "url": "http://feeds.bbci.co.uk/news/politics/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "health",
+    "url": "http://feeds.bbci.co.uk/news/health/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "education",
+    "url": "http://feeds.bbci.co.uk/news/education/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "science",
+    "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "technology",
+    "url": "http://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "culture",
+    "url": "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+  },
+
   {
     "source": "Guardian",
     "category": "uk",
     "url": "https://www.theguardian.com/uk/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "opinion",
+    "url": "https://www.theguardian.com/uk/commentisfree/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "sport",
+    "url": "https://www.theguardian.com/uk/sport/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "opinion",
+    "url": "https://www.theguardian.com/uk/commentisfree/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "culture",
+    "url": "https://www.theguardian.com/uk/culture/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "business",
+    "url": "https://www.theguardian.com/uk/business/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "politics",
+    "url": "https://www.theguardian.com/politics/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "science",
+    "url": "https://www.theguardian.com/science/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "technology",
+    "url": "https://www.theguardian.com/uk/technology/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "education",
+    "url": "https://www.theguardian.com/education/rss"
+  },
+
+  {
+    "source": "Reuters",
+    "category": "uk",
+    "url": "http://feeds.reuters.com/reuters/UKdomesticNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "world",
+    "url": "http://feeds.reuters.com/reuters/UKWorldNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "technology",
+    "url": "http://feeds.reuters.com/reuters/technologyNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "science",
+    "url": "http://feeds.reuters.com/reuters/UKScienceNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "health",
+    "url": "http://feeds.reuters.com/reuters/UKHealthNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "sports",
+    "url": "http://feeds.reuters.com/reuters/UKSportsNews"
+  },
+  {
+    "source": "Reuters",
+    "category": "entertainment",
+    "url": "http://feeds.reuters.com/reuters/UKEntertainment"
+  },
+
+  {
+    "source": "Telegraph",
+    "category": "home",
+    "url": "https://www.telegraph.co.uk/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "politics",
+    "url": "https://www.telegraph.co.uk/politics/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "sport",
+    "url": "https://www.telegraph.co.uk/sport/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "technology",
+    "url": "https://www.telegraph.co.uk/technology/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "business",
+    "url": "https://www.telegraph.co.uk/business/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "culture",
+    "url": "https://www.telegraph.co.uk/culture/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "business",
+    "url": "https://www.telegraph.co.uk/business/rss"
+  },
+  {
+    "source": "Telegraph",
+    "category": "business",
+    "url": "https://www.telegraph.co.uk/business/rss"
+  },
+
+  {
+    "source": "Independent",
+    "category": "uk",
+    "url": "http://www.independent.co.uk/news/uk/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "world",
+    "url": "http://www.independent.co.uk/news/world/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "business",
+    "url": "http://www.independent.co.uk/news/business/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "science",
+    "url": "http://www.independent.co.uk/news/science/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "education",
+    "url": "http://www.independent.co.uk/news/education/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "sport",
+    "url": "http://www.independent.co.uk/sport/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "environment",
+    "url": "http://www.independent.co.uk/environment/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "sport",
+    "url": "http://www.independent.co.uk/sport/rss"
+  },
+  {
+    "source": "Independent",
+    "category": "culture",
+    "url": "http://www.independent.co.uk/arts-entertainment/rss"
+  },
+
+  {
+    "source": "Metro",
+    "category": "uk",
+    "url": "https://metro.co.uk/news/uk/feed/"
+  },
+  {
+    "source": "Metro",
+    "category": "world",
+    "url": "https://metro.co.uk/news/world/feed/"
+  },
+  {
+    "source": "Metro",
+    "category": "sport",
+    "url": "https://metro.co.uk/sport/feed/"
+  },
+
+  {
+    "source": "Mirror",
+    "category": "uk",
+    "url": "https://www.mirror.co.uk/news/uk-news/?service=rss"
+  },
+  {
+    "source": "Mirror",
+    "category": "politics",
+    "url": "https://www.mirror.co.uk/news/politics/?service=rss"
+  },
+  {
+    "source": "Mirror",
+    "category": "sport",
+    "url": "https://www.mirror.co.uk/sport/?service=rss"
+  },
+  {
+    "source": "Mirror",
+    "category": "technology",
+    "url": "https://www.mirror.co.uk/tech/?service=rss"
+  },
+  {
+    "source": "Mirror",
+    "category": "science",
+    "url": "https://www.mirror.co.uk/science/?service=rss"
+  },
+
+  {
+    "source": "Express",
+    "category": "uk",
+    "url": "https://www.express.co.uk/posts/rss/1/uk"
+  },
+  {
+    "source": "Express",
+    "category": "world",
+    "url": "https://www.express.co.uk/posts/rss/78/world"
+  },
+  {
+    "source": "Express",
+    "category": "politics",
+    "url": "https://www.express.co.uk/posts/rss/139/politics"
+  },
+  {
+    "source": "Express",
+    "category": "technology",
+    "url": "https://www.express.co.uk/posts/rss/59/tech"
+  },
+  {
+    "source": "Express",
+    "category": "royals",
+    "url": "https://www.express.co.uk/posts/rss/106/royal"
+  },
+
+  {
+    "source": "Financial Times",
+    "category": "uk",
+    "url": "https://www.ft.com/?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "business",
+    "url": "https://www.ft.com/companies?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "politics",
+    "url": "https://www.ft.com/uk-politics-podcast?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "world",
+    "url": "https://www.ft.com/world?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "science",
+    "url": "https://www.ft.com/companies/science?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "technology",
+    "url": "https://www.ft.com/technology?format=rss"
+  },
+  {
+    "source": "Financial Times",
+    "category": "culture",
+    "url": "https://www.ft.com/arts?format=rss"
   }
+
 ]

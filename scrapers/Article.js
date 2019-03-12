@@ -33,13 +33,15 @@ class Article {
         console.log("ADDING ARTICLE: " + this.article_data.title[0]);
         this.initialAdd();
       }
-      else { console.log("ALREADY EXISTS: " + this.article_data.title[0]) };
+      else {
+        console.log("ALREADY EXISTS: " + this.article_data.title[0])
+      };
     }).catch((err) => setImmediate(() => { throw err; }));
   }
 
   checkExists() {
-    let sql = "SELECT * FROM articles WHERE title = ? and link = ?"
-    let inserts = [this.article_data.title[0], this.article_data.link];
+    let sql = "SELECT * FROM articles WHERE link = ?"
+    let inserts = [this.article_data.link];
     sql = mysql.format(sql, inserts);
     return new Promise((resolve, reject) => {
       pool.query(sql, (error, results, fields) => {
