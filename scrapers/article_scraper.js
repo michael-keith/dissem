@@ -19,7 +19,7 @@ const url_data = require('./scraper_data.json')
 async function get_articles( metadata ) {
   request(metadata.url, (error, response, body) => {
     parseString(body, (err, result) => {
-      if(result) {
+      if(result && result.rss.channel[0].item) {
         result.rss.channel[0].item.forEach( article_data => {
           let article = new Article()
           article.setArticleData(article_data)
@@ -43,4 +43,4 @@ url_data.forEach(get_articles)
 setInterval( () => {
   url_data.forEach(get_articles)
   remove_dupes()
-}, 60000)
+}, 600000)
