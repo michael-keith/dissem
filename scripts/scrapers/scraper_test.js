@@ -60,13 +60,11 @@ function initList() {
 async function iterateList(articles) {
   while(articles.length) {
     console.log("------------------------------------------------------------");
-    getTweetCollection(articles[0], articles[0].max_id)
-    .then( (tweet_collection ) => {
+    getTweetCollection(articles[0], articles[0].max_id).then( (tweet_collection ) => {
       console.log("Arr length: " + articles.length)
       console.log(articles[0].link + " | (Max id: " + articles[0].max_id + ")")
       return tweet_collection
-    }).catch(console.error)
-    .then( tweet_collection => {
+    }).catch(console.error).then( tweet_collection => {
       article = articles[0]
       if(tweet_collection && tweet_collection.tweets.length > 0) {
         tweet_collection.updateTweets().then( post_data => {

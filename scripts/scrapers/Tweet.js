@@ -28,12 +28,10 @@ class Tweet {
     return new Promise((resolve, reject) => {
       this.checkExists().then(result => {
         if(!result) {
-          //console.log("ADDING TWEET: " + this.twitterData.text);
           this.initialAdd()
           resolve(0)
         }
         else {
-          //console.log("ALREADY EXISTS: " + this.twitterData.text)
           resolve(1)
         };
       }).catch((err) => setImmediate(() => { throw err; }))
