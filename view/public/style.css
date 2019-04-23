@@ -1,0 +1,57 @@
+path {
+  stroke: #000;
+}
+
+.BBC {
+  border-color: #bb1919;
+  stroke: #bb1919;
+  fill: #bb1919;
+  background-color: #bb1919;
+}
+
+.Guardian {
+  border-color: #052962;
+  stroke: #052962;
+  fill: #052962;
+  background-color: #052962;
+}
+
+.Mail {
+  border-color: #004db3;
+  stroke: #004db3;
+  fill: #004db3;
+  background-color: #004db3;
+}
+
+.Independent {
+  border-color: #fa0027;
+  stroke: #fa0027;
+  fill: #fa0027;
+  background-color: #fa0027;
+}
+
+.Metro {
+  border-color: #000;
+  stroke: #000;
+  fill: #000;
+  background-color: #000;
+}
+
+.Mirror {
+  border-color: #e90e0e;
+  stroke: #e90e0e;
+  fill: #e90e0e;
+  background-color: #e90e0e;
+}
+
+.Telegraph {
+  border-color: #02c3aa;
+  stroke: #02c3aa;
+  fill: #02c3aa;
+  background-color: #02c3aa;
+}
+
+.Total {
+  fill: #888;
+  stroke: #888;
+}

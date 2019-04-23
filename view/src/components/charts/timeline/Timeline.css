@@ -1,0 +1,39 @@
+.timeline_axis {
+  stroke-width: 2;
+}
+
+.timeline_axis .domain {
+  stroke-width: 2;
+}
+
+.timeline_axis text {
+  fill: #000;
+  font-size: 11px;
+}
+
+.timeline_axis .tick:nth-child(2n) text {
+  visibility: hidden;
+}
+
+.timeline_line {
+  stroke: #BBB;
+  stroke-width: 2;
+}
+
+.timeline_circle {
+  cursor: pointer;
+  fill: #000;
+}
+
+.timeline_tooltip {
+  position: absolute;
+  text-align: left;
+  font-size: 12px;
+  padding: 5px;
+  background: lightsteelblue;
+  pointer-events: none;
+}
+
+.hide {
+  display: none;
+}

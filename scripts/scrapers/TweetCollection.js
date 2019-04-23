@@ -12,7 +12,7 @@ const Tweet = require('./Tweet');
 
 class TweetCollection {
 
-  constructor(article_data, tweets) {
+  constructor(article_data, tweets, source) {
     this.article_data = article_data
     this.tweets = tweets.statuses
   }

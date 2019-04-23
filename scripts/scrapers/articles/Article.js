@@ -13,35 +13,44 @@ class Article {
   constructor() {
   }
 
-  setArticleData(article_data) {
-    this.article_data = article_data;
+  setTitle(title) {
+    this.title = title
   }
 
-  setMetadata(metadata) {
-    this.metadata = metadata;
+  setSource(source) {
+    this.source = source
+  }
+
+  setLink(link) {
+    this.link = link
+  }
+
+  setCategory(category) {
+    this.category = category
   }
 
   setDate(date = false) {
-    if(!date) {date = this.article_data.pubDate};
-    this.date = new Date(date);
-    this.timestamp = this.date.getTime() / 1000;
+    if( new Date(date) != "Invalid Date" ) {
+      this.date = new Date(date)
+      this.timestamp = this.date.getTime() / 1000
+    }
   }
 
   manageUpdate() {
     this.checkExists().then(result => {
       if(!result) {
-        console.log("ADDING ARTICLE: " + this.article_data.title[0]);
+        console.log("ADDING ARTICLE: " + this.title);
         this.initialAdd();
       }
       else {
-        console.log("ALREADY EXISTS: " + this.article_data.title[0])
+        console.log("ALREADY EXISTS: " + this.title)
       };
     }).catch((err) => setImmediate(() => { throw err; }));
   }
 
   checkExists() {
     let sql = "SELECT * FROM articles WHERE link = ?"
-    let inserts = [this.article_data.link];
+    let inserts = [this.link];
     sql = mysql.format(sql, inserts);
     return new Promise((resolve, reject) => {
       pool.query(sql, (error, results, fields) => {
@@ -54,9 +63,11 @@ class Article {
 
   initialAdd() {
     let sql = "INSERT INTO articles(source, title, link, category, date, timestamp) VALUES(?,?,?,?,?,?)";
-    let inserts = [this.metadata.source, this.article_data.title[0], this.article_data.link, this.metadata.category, this.date, this.timestamp];
+    let inserts = [this.source, this.title, this.link, this.category, this.date, this.timestamp];
     sql = mysql.format(sql, inserts);
-    pool.query(sql, error => {if (error) throw error;});
+    pool.query(sql, error => {
+      if (error) console.log(error)
+    });
   }
 
 };

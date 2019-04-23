@@ -23,7 +23,7 @@ const TweetCollection = require('./TweetCollection');
 function getArticles() {
   var timestamp = new Date().getTime();
 
-  let sql = "SELECT id, link FROM articles WHERE timestamp > ? ORDER BY date DESC";
+  let sql = "SELECT id, link, source FROM articles WHERE timestamp > ? ORDER BY date DESC";
   let inserts = [ (timestamp/1000) - 259200];
   sql = mysql.format(sql, inserts);
 
@@ -40,7 +40,7 @@ function getTweetCollection(article_data, max_id = "") {
 
   return new Promise((resolve, reject) => {
     client.get('search/tweets', {q: query, result_type: "recent", count: "100", exclude:"retweets", max_id: max_id} ,(error, tweets, response) => {
-      if(error) {throw error;}
+      if(error) {console.log(error) }
       // console.log(tweets);
       let tweet_collection = new TweetCollection(article_data, tweets);
       resolve(tweet_collection);

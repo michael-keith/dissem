@@ -1,0 +1,32 @@
+.item {
+  border-left-width: 7px;
+  border-left-style: solid;
+  margin: 0 0 5px 0;
+  padding: 5px 5px 5px 10px;
+  background-color: #FFF;
+}
+
+.item p {
+  margin: 0;
+  padding: 0;
+}
+
+.item a {
+  color: #000;
+}
+
+.item_title {
+  font-weight: 600;
+}
+
+.item_sub {
+  font-size: 14px;
+}
+
+.badge {
+  font-family: 'PT Sans';
+  color: #FFF;
+  padding: 2px 5px 2px 5px;
+  font-size: 14px;
+  margin: 0 7px 0 0;
+}

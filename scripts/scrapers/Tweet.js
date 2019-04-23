@@ -53,8 +53,8 @@ class Tweet {
 
   initialAdd() {
     return new Promise((resolve, reject) => {
-      let sql = "INSERT INTO twitter(article_id, twitter_id, link, screen_name, text, date, timestamp) VALUES(?,?,?,?,?,?,?)"
-      let inserts = [this.articleData.id, this.twitterData.id_str, this.articleData.link, this.twitterData.user.screen_name, this.twitterData.text, this.twitterData.date, this.twitterData.timestamp];
+      let sql = "INSERT INTO twitter(source, article_id, twitter_id, link, screen_name, text, date, timestamp) VALUES(?,?,?,?,?,?,?,?)"
+      let inserts = [this.articleData.source, this.articleData.id, this.twitterData.id_str, this.articleData.link, this.twitterData.user.screen_name, this.twitterData.text, this.twitterData.date, this.twitterData.timestamp];
       sql = mysql.format(sql, inserts)
       pool.query(sql, error => {if (error) throw error})
       resolve()

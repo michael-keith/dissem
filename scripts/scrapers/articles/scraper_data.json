@@ -11,6 +11,11 @@
   },
   {
     "source": "BBC",
+    "category": "uk",
+    "url": "http://feeds.bbci.co.uk/news/rss.xml?edition=uk"
+  },
+  {
+    "source": "BBC",
     "category": "scotland",
     "url": "http://feeds.bbci.co.uk/news/scotland/rss.xml"
   },
@@ -23,6 +28,16 @@
     "source": "BBC",
     "category": "northern ireland",
     "url": "http://feeds.bbci.co.uk/news/northern_ireland/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "london",
+    "url": "http://feeds.bbci.co.uk/news/england/london/rss.xml"
+  },
+  {
+    "source": "BBC",
+    "category": "north america",
+    "url": "http://feeds.bbci.co.uk/news/rss.xml?edition=us"
   },
   {
     "source": "BBC",
@@ -64,6 +79,56 @@
     "source": "Guardian",
     "category": "uk",
     "url": "https://www.theguardian.com/uk/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "australia",
+    "url": "https://www.theguardian.com/australia-news/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "us",
+    "url": "https://www.theguardian.com/us-news/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "americas",
+    "url": "https://www.theguardian.com/world/americas/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "asia",
+    "url": "https://www.theguardian.com/world/asia/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "middle east",
+    "url": "https://www.theguardian.com/world/middleeast/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "africa",
+    "url": "https://www.theguardian.com/world/africa/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "obituaries",
+    "url": "https://www.theguardian.com/tone/obituaries/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "global development",
+    "url": "https://www.theguardian.com/global-development/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "cities",
+    "url": "https://www.theguardian.com/cities/rss"
+  },
+  {
+    "source": "Guardian",
+    "category": "life and style",
+    "url": "https://www.theguardian.com/uk/lifeandstyle/rss"
   },
   {
     "source": "Guardian",
@@ -110,6 +175,11 @@
     "category": "education",
     "url": "https://www.theguardian.com/education/rss"
   },
+  {
+    "source": "Guardian",
+    "category": "environment",
+    "url": "https://www.theguardian.com/environment/rss"
+  },
 
   {
     "source": "Reuters",
@@ -150,42 +220,32 @@
   {
     "source": "Telegraph",
     "category": "home",
-    "url": "https://www.telegraph.co.uk/rss"
+    "url": "https://www.telegraph.co.uk/rss.xml"
   },
   {
     "source": "Telegraph",
     "category": "politics",
-    "url": "https://www.telegraph.co.uk/politics/rss"
+    "url": "https://www.telegraph.co.uk/politics/rss.xml"
   },
   {
     "source": "Telegraph",
     "category": "sport",
-    "url": "https://www.telegraph.co.uk/sport/rss"
+    "url": "https://www.telegraph.co.uk/sport/rss.xml"
   },
   {
     "source": "Telegraph",
     "category": "technology",
-    "url": "https://www.telegraph.co.uk/technology/rss"
+    "url": "https://www.telegraph.co.uk/technology/rss.xml"
   },
   {
     "source": "Telegraph",
     "category": "business",
-    "url": "https://www.telegraph.co.uk/business/rss"
+    "url": "https://www.telegraph.co.uk/business/rss.xml"
   },
   {
     "source": "Telegraph",
     "category": "culture",
-    "url": "https://www.telegraph.co.uk/culture/rss"
-  },
-  {
-    "source": "Telegraph",
-    "category": "business",
-    "url": "https://www.telegraph.co.uk/business/rss"
-  },
-  {
-    "source": "Telegraph",
-    "category": "business",
-    "url": "https://www.telegraph.co.uk/business/rss"
+    "url": "https://www.telegraph.co.uk/culture/rs.xmls"
   },
 
   {
@@ -236,6 +296,11 @@
 
   {
     "source": "Metro",
+    "category": "top",
+    "url": "https://metro.co.uk/news/feed/"
+  },
+  {
+    "source": "Metro",
     "category": "uk",
     "url": "https://metro.co.uk/news/uk/feed/"
   },
@@ -243,6 +308,16 @@
     "source": "Metro",
     "category": "world",
     "url": "https://metro.co.uk/news/world/feed/"
+  },
+  {
+    "source": "Metro",
+    "category": "weird",
+    "url": "http://metro.co.uk/news/weird/feed/"
+  },
+  {
+    "source": "Metro",
+    "category": "money",
+    "url": "http://metro.co.uk/news/money/feed/"
   },
   {
     "source": "Metro",
@@ -336,6 +411,47 @@
     "source": "Financial Times",
     "category": "culture",
     "url": "https://www.ft.com/arts?format=rss"
+  },
+
+  {
+    "source": "Daily Mail",
+    "category": "latest",
+    "url": "https://www.dailymail.co.uk/articles.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "top",
+    "url": "https://www.dailymail.co.uk/news/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "home",
+    "url": "https://www.dailymail.co.uk/home/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "news",
+    "url": "https://www.dailymail.co.uk/news/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "world",
+    "url": "https://www.dailymail.co.uk/news/worldnews/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "sport",
+    "url": "https://www.dailymail.co.uk/sport/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "science",
+    "url": "https://www.dailymail.co.uk/sciencetech/index.rss"
+  },
+  {
+    "source": "Daily Mail",
+    "category": "money",
+    "url": "https://www.dailymail.co.uk/money/index.rss"
   }
 
 ]

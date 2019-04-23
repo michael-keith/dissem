@@ -1,0 +1,23 @@
+#scatter {
+  position: relative;
+}
+
+#scatter .grid line{
+  opacity: 0.2;
+}
+
+.scatter_circle {
+  cursor: pointer;
+}
+
+.scatter_tooltip {
+  position: absolute;
+  padding: 5px 5px 5px 5px;
+  text-align: left;
+  font-size: 12px;
+  pointer-events: none;
+  background-color: #FFF;
+  border-left-style: solid;
+  border-left-width: 7px;
+  max-width: 300px;
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "name": "BBC",
+    "url": "bbc.co.uk/news",
+    "track": "bbc co uk news"
+  },
+  {
+    "name": "BBC",
+    "url": "bbc.com/news",
+    "track": "bbc com news",
+    "conversion": "bbc.co.uk/news"
+  },
+  {
+    "name": "BBC",
+    "url": "bbc.co.uk/sport",
+    "track": "bbc co uk sport"
+  },
+  {
+    "name": "Guardian",
+    "url": "theguardian.com",
+    "track": "theguardian com"
+  },
+  {
+    "name": "Independent",
+    "url": "independent.co.uk",
+    "track": "independent co uk"
+  },
+  {
+    "name": "Mirror",
+    "url": "mirror.co.uk",
+    "track": "mirror co uk"
+  },
+  {
+    "name": "Financial Time",
+    "url": "ft.co.uk",
+    "track": "ft co uk content, ft co uk video"
+  },
+  {
+    "name": "Telegraph",
+    "url": "telegraph.co.uk",
+    "track": "telegraph co uk"
+  },
+  {
+    "name": "Metro",
+    "url": "metro.co.uk",
+    "track": "metro co uk"
+  },
+  {
+    "name": "Daily Mail",
+    "url": "dailymail.co.uk",
+    "track": "dailymail co uk"
+  }
+]

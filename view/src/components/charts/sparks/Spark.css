@@ -1,0 +1,31 @@
+.sparkline .line {
+  fill: none;
+  stroke-width: 1.2;
+}
+
+.sparkline .area {
+  opacity: 0.2;
+}
+
+/* .sparkline_axis .tick:nth-child(2) text {
+  display: none;
+} */
+
+.sparkline_axis .tick text{
+  font-weight: 0;
+  stroke: #000;
+  font-size: 11px;
+  stroke-width: 0;
+}
+
+.sparkline_axis path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+}
+
+.sparkline_axis .tick {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+}
