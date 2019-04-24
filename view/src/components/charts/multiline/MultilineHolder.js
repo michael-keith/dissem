@@ -37,7 +37,7 @@ class MultilineHolder extends Component {
   render() {
     if(!this.state.loading) {
       return <div id="multiline_holder" className="section">
-        <h2>Totals tweets for each news organisation: {this.state.time_range}</h2>
+        <h2>Totals tweets for each news organisation ({this.state.time_range}):</h2>
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>

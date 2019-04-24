@@ -15,11 +15,6 @@ class BasicInfo {
     )
   }
 
-  setBarchart() {
-    this.setBarchartData( (Math.floor(Date.now() / 1000)) - 86400 ).then(
-      (d) => { this.barchart = d}
-    )
-  }
 
   setTotal() {
     this.setTotalData( (Math.floor(Date.now() / 1000)) - 86400 ).then(

@@ -37,7 +37,7 @@ class ScatterHolder extends Component {
   render() {
     if(!this.state.loading) {
       return <div id="scatter_holder" className="section">
-        <h2>Top 100 tweets: {this.state.time_range}</h2>
+        <h2>Top 100 articles posted {this.state.time_range == "daily" ? "today" : this.state.time_range == "hourly" ? "in the last hour" : "in the last week"}:</h2>
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
