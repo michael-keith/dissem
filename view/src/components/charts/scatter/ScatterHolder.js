@@ -26,7 +26,7 @@ class ScatterHolder extends Component {
   }
 
   changeData(time_range) {
-    if(time_range != this.state.time_range) {
+    if(time_range !== this.state.time_range) {
       this.setState({data: '', loading: true})
       fetch(config.api_url + "scatter/" + time_range)
       .then(response => response.json() )
@@ -39,16 +39,16 @@ class ScatterHolder extends Component {
 
   render() {
     return <div id="scatter_holder" className="section">
-      <h2>Top 100 articles posted {this.state.time_range == "daily" ? "today" : this.state.time_range == "hourly" ? "in the last hour" : "in the last week"}:</h2>
+      <h2>Top 100 articles posted {this.state.time_range === "daily" ? "today" : this.state.time_range === "hourly" ? "in the last hour" : "in the last week"}:</h2>
       <ul className="nav nav-tabs">
         <li className="nav-item">
-          <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
+          <p className={this.state.time_range === 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
         </li>
         <li className="nav-item">
-          <p className={this.state.time_range == 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
+          <p className={this.state.time_range === 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
         </li>
         <li className="nav-item">
-          <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
+          <p className={this.state.time_range === 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
         </li>
       </ul>
       {!this.state.loading ? <Scatter id={"scatter"} data={this.state.data} time_range={this.state.time_range} /> : <Loading />}

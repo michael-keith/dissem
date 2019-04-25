@@ -54,7 +54,7 @@ class Timeline extends Component {
 
     let min_date = formatTime( d3.timeHour.offset(new Date(), offset) )
     let max_date = formatTime( new Date().setMinutes(0) )
-    if(this.props.time_range == "hourly") { max_date = formatTime( new Date() ) }
+    if(this.props.time_range === "hourly") { max_date = formatTime( new Date() ) }
 
     //X axis
     const x = d3.scaleTime().range([margin.left, width])

@@ -43,9 +43,9 @@ class Spark extends Component {
     let offset = -24
     let display_format = "%H"
     let tick_num = 15
-    if(this.props.time_range == "daily") { time_format = "%Y-%m-%d %H"; offset = -24; display_format = "%_I%p"; tick_num = 10}
-    else if(this.props.time_range == "hourly") { time_format = "%Y-%m-%d %H:%M"; offset = -1; display_format = "%_H:%M"; tick_num = 5}
-    else if(this.props.time_range == "weekly") { time_format = "%Y-%m-%d"; offset = -168; display_format = "%a"; tick_num = 5}
+    if(this.props.time_range === "daily") { time_format = "%Y-%m-%d %H"; offset = -24; display_format = "%_I%p"; tick_num = 10}
+    else if(this.props.time_range === "hourly") { time_format = "%Y-%m-%d %H:%M"; offset = -1; display_format = "%_H:%M"; tick_num = 5}
+    else if(this.props.time_range === "weekly") { time_format = "%Y-%m-%d"; offset = -168; display_format = "%a"; tick_num = 5}
 
     let parseTime = d3.timeParse(time_format)
     let formatTime = d3.timeFormat(time_format)

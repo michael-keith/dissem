@@ -52,16 +52,16 @@ class Scatter extends Component {
     let display_format = "%H:%M"
     let tick_num = 15
     let grid_x_interval = 1
-    if(this.props.time_range == "daily") { offset = -24; display_format = "%H:%M"; tick_num = 10; grid_x_interval = 1}
-    else if(this.props.time_range == "hourly") { offset = -1; display_format = "%H:%M"; tick_num = 10; grid_x_interval = 0.5}
-    else if(this.props.time_range == "weekly") { offset = -168; display_format = "%a"; tick_num = 7; grid_x_interval = 12}
+    if(this.props.time_range === "daily") { offset = -24; display_format = "%H:%M"; tick_num = 10; grid_x_interval = 1}
+    else if(this.props.time_range === "hourly") { offset = -1; display_format = "%H:%M"; tick_num = 10; grid_x_interval = 0.5}
+    else if(this.props.time_range === "weekly") { offset = -168; display_format = "%a"; tick_num = 7; grid_x_interval = 12}
 
     let parseTime = d3.timeParse(time_format)
     let formatTime = d3.timeFormat(time_format)
 
     let min_date = formatTime( d3.timeHour.offset(new Date(), offset) )
     let max_date = formatTime( new Date().setMinutes(0) )
-    if(this.props.time_range == "hourly") { max_date = formatTime( new Date() ) }
+    if(this.props.time_range === "hourly") { max_date = formatTime( new Date() ) }
 
     //X axis
     const x = d3.scaleTime().range([margin.left, width])

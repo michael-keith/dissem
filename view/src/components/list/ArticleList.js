@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-
 import './ArticleList.css'
 import Spark from '../charts/sparks/Spark'
 
@@ -31,7 +28,7 @@ class ArticleList extends Component {
   }
 
   changeData(time_range) {
-    if(time_range != this.state.time_range) {
+    if(time_range !== this.state.time_range) {
       this.setState({data: '', loading: true})
       fetch(config.api_url + "/list/" + time_range)
       .then(response => response.json() )
@@ -64,16 +61,16 @@ class ArticleList extends Component {
   render() {
     return (
       <div id="article_list" class="section">
-        <h2>Most tweeted articles {this.state.time_range == "daily" ? "in the last 24 hours" : this.state.time_range == "hourly" ? "in the last hour" : "in the last week"}:</h2>
+        <h2>Most tweeted articles {this.state.time_range === "daily" ? "in the last 24 hours" : this.state.time_range === "hourly" ? "in the last hour" : "in the last week"}:</h2>
         <ul className="nav nav-tabs">
           <li className="nav-item">
-            <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
+            <p className={this.state.time_range === 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
           </li>
           <li className="nav-item">
-            <p className={this.state.time_range == 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
+            <p className={this.state.time_range === 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
           </li>
           <li className="nav-item">
-            <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
+            <p className={this.state.time_range === 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
           </li>
         </ul>
         { this.renderItems() }

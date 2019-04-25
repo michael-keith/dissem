@@ -26,7 +26,7 @@ class MultilineHolder extends Component {
   }
 
   changeData(time_range) {
-    if(time_range != this.state.time_range) {
+    if(time_range !== this.state.time_range) {
       this.setState({data: '', loading: true})
       fetch(config.api_url + "multiline/" + time_range)
       .then(response => response.json() )
@@ -42,13 +42,13 @@ class MultilineHolder extends Component {
       <h2>Totals tweets for each news organisation ({this.state.time_range}):</h2>
       <ul className="nav nav-tabs">
         <li className="nav-item">
-          <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
+          <p className={this.state.time_range === 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
         </li>
         <li className="nav-item">
-          <p className={this.state.time_range == 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
+          <p className={this.state.time_range === 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
         </li>
         <li className="nav-item">
-          <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
+          <p className={this.state.time_range === 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
         </li>
       </ul>
       {!this.state.loading ? <Multiline id={"multiline"} data={this.state.data} time_range={this.state.time_range} /> : <Loading />}
