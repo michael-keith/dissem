@@ -6,10 +6,12 @@ import './App.css'
 import Index from './pages/Index'
 
 class App extends Component {
+
   render() {
+    const base_url = process.env.PUBLIC_URL
     return (
       <Router>
-        <Route exact path="/" component={Index} />
+        <Route exact path={base_url + "/"} component={Index} />
       </Router>
     )
   }
