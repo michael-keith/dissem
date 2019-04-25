@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 import Multiline from './Multiline.js'
+import Loading from '../../loading/Loading'
+
+const config =  require('../../../config.json')
 
 class MultilineHolder extends Component {
 
@@ -14,7 +17,7 @@ class MultilineHolder extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/multiline/daily")
+    fetch(config.api_url + "multiline/daily")
     .then(response => response.json() )
     .then(data => {
       this.setState({ data: data, loading: false })
@@ -25,7 +28,7 @@ class MultilineHolder extends Component {
   changeData(time_range) {
     if(time_range != this.state.time_range) {
       this.setState({data: '', loading: true})
-      fetch("http://localhost:3001/multiline/" + time_range)
+      fetch(config.api_url + "multiline/" + time_range)
       .then(response => response.json() )
       .then(data => {
         this.setState({ data: data, loading: false, time_range: time_range })
@@ -35,24 +38,21 @@ class MultilineHolder extends Component {
   }
 
   render() {
-    if(!this.state.loading) {
-      return <div id="multiline_holder" className="section">
-        <h2>Totals tweets for each news organisation ({this.state.time_range}):</h2>
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
-          </li>
-          <li className="nav-item">
-            <p className={this.state.time_range == 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
-          </li>
-          <li className="nav-item">
-            <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
-          </li>
-        </ul>
-        <Multiline id={"multiline"} data={this.state.data} time_range={this.state.time_range} />
-      </div>
-    }
-    else {return "LOADING..."}
+    return <div id="multiline_holder" className="section">
+      <h2>Totals tweets for each news organisation ({this.state.time_range}):</h2>
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
+        </li>
+        <li className="nav-item">
+          <p className={this.state.time_range == 'daily' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("daily") }>Daily</p>
+        </li>
+        <li className="nav-item">
+          <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
+        </li>
+      </ul>
+      {!this.state.loading ? <Multiline id={"multiline"} data={this.state.data} time_range={this.state.time_range} /> : <Loading />}
+    </div>
   }
 
 }

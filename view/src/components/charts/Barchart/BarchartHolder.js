@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import Barchart from './Barchart.js'
 import Loading from '../../loading/Loading'
 
+const config =  require('../../../config.json')
+
 class BarchartHolder extends Component {
 
   constructor(props) {
@@ -15,7 +17,7 @@ class BarchartHolder extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/barchart/daily")
+    fetch(config.api_url + "barchart/daily")
     .then(response => response.json() )
     .then(data => {
       this.setState({ data: data, loading: false })
@@ -26,7 +28,7 @@ class BarchartHolder extends Component {
   changeData(time_range) {
     if(time_range != this.state.time_range) {
       this.setState({data: '', loading: true})
-      fetch("http://localhost:3001/barchart/" + time_range)
+      fetch(config.api_url + "/barchart/" + time_range)
       .then(response => response.json() )
       .then(data => {
         this.setState({ data: data, loading: false, time_range: time_range })
@@ -36,9 +38,8 @@ class BarchartHolder extends Component {
   }
 
   render() {
-    if(!this.state.loading) {
       return <div id="multiline_holder" className="section">
-        <h2>Totals tweets for each news organisation: {this.state.time_range}</h2>
+        <h2>Totals tweets for each news organisation ({this.state.time_range}):</h2>
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <p className={this.state.time_range == 'weekly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("weekly") }>Weekly</p>
@@ -50,10 +51,11 @@ class BarchartHolder extends Component {
             <p className={this.state.time_range == 'hourly' ? 'nav-link active' : 'nav-link'} onClick={ (e) => this.changeData("hourly") }>Hourly</p>
           </li>
         </ul>
-        <Barchart id={"barchart"} data={this.state.data} time_range={this.state.time_range} />
+        { !this.state.loading ?
+          <Barchart id={"barchart"} data={this.state.data} time_range={this.state.time_range} />
+          : <Loading />
+        }
       </div>
-    }
-    else {return <Loading />}
   }
 
 }

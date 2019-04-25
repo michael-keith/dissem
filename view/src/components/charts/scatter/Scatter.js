@@ -142,10 +142,11 @@ class Scatter extends Component {
     circles.on("mouseover", function(d){
       tooltip.attr("class", "scatter_tooltip " + d.source)
 
+      const date_options = {'hour': '2-digit', 'minute': '2-digit', weekday: 'long',year: 'numeric', month: 'long', day: 'numeric', hour12: false}
       tooltip.transition()
       .duration(100)
       .style("opacity", .9);
-      tooltip.html( d.source + ": " + d.title + "<br/>" +  d.total + "<br/>" + d.df )
+      tooltip.html( d.source + ": " + d.title + "<br/>" +  d.total + "<br/>" + new Date(d.df).toLocaleDateString("en-UK", date_options) )
 
       circles.transition()
       .duration(150)

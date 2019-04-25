@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import Spark from '../charts/sparks/Spark'
-import Barchart from '../charts/Barchart/Barchart'
+import Loading from '../loading/Loading'
+
+const config =  require('../../config.json')
 
 class BasicInfo extends Component {
 
@@ -9,20 +11,20 @@ class BasicInfo extends Component {
     super()
     this.state = {
       loading: true,
-      daily_sparkline_data: false,
+      daily_total_data: false,
       total_tweets: false
     }
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/basic_info/sparkline/daily")
+    fetch(config.api_url + "basic_info/sparkline/daily")
     .then(response => response.json() )
     .then(data => {
       this.setState({ daily_total_data: data, loading: false })
     })
     .catch(e => console.log(e))
 
-    fetch("http://localhost:3001/basic_info/total")
+    fetch(config.api_url + "basic_info/total")
     .then(response => response.json() )
     .then(data => {
       this.setState({ total_tweets: data, loading: false })
@@ -31,12 +33,12 @@ class BasicInfo extends Component {
   }
 
   renderSparkline() {
-    if(!this.state.loading) {
+    if(this.state.daily_total_data) {
       return <div className="Total">
         <Spark id={'totals_spark'} className="sparkline_total" data={this.state.daily_total_data} time_range={"daily"} height={80} source="Total"/>
       </div>
     }
-    else {return "LOADING..."}
+    else {return <Loading />}
   }
 
   render() {

@@ -3,15 +3,7 @@ import React, { Component } from 'react'
 import './Navbar.css'
 
 class Navbar extends Component {
-
-  constructor() {
-    super()
-  }
-
-  componentDidMount() {
-
-  }
-
+  
   render() {
     return <nav id="navbar" className="navbar">
       <h1>UK News Index</h1>
