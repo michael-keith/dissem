@@ -52,7 +52,8 @@ class Timeline extends Component {
     let parseTime = d3.timeParse(time_format)
     let formatTime = d3.timeFormat(time_format)
 
-    let min_date = formatTime( d3.timeHour.offset(new Date(), offset) )
+    //let min_date = formatTime( d3.timeHour.offset(new Date(), offset) )
+    let min_date = formatTime( parseTime(data["BBC"][0].df) )
     let max_date = formatTime( new Date().setMinutes(0) )
     if(this.props.time_range === "hourly") { max_date = formatTime( new Date() ) }
 

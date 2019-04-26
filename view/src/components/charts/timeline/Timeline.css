@@ -22,7 +22,8 @@
 
 .timeline_circle {
   cursor: pointer;
-  fill: #000;
+  stroke-width: 1px;
+  stroke: #000;
 }
 
 .timeline_tooltip {

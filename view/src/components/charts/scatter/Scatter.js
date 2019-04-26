@@ -24,11 +24,6 @@ class Scatter extends Component {
   componentDidMount() {
     if(!this.props.width) { this.width = document.getElementById(this.props.id).clientWidth }
     this.drawChart()
-    // fetch(this.props.data_url)
-    // .then(response => response.json() )
-    // .then(data => this.setState({ data: data }) )
-    // .then( () => this.drawChart() )
-    // .catch(e => console.log(e))
   }
 
   drawChart() {
@@ -146,7 +141,7 @@ class Scatter extends Component {
       tooltip.transition()
       .duration(100)
       .style("opacity", .9);
-      tooltip.html( d.source + ": " + d.title + "<br/>" +  d.total + "<br/>" + new Date(d.df).toLocaleDateString("en-UK", date_options) )
+      tooltip.html( "<span class='badge " + d.source +"'>" + d.source + "</span><b>" + d.title + "</b><br/><b>" +  d.total + "</b> tweets <br/>" + new Date(d.df).toLocaleDateString("en-UK", date_options) )
 
       circles.transition()
       .duration(150)

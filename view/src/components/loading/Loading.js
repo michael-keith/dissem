@@ -5,9 +5,9 @@ import './Loading.css'
 class Loading extends Component {
 
   render() {
-    return <div class="loading">
-      <div class="fa-3x">
-        <i class="fas fa-circle-notch fa-spin"></i>
+    return <div className="loading">
+      <div className="fa-3x">
+        <i className="fas fa-circle-notch fa-spin"></i>
       </div>
     </div>
   }

@@ -45,7 +45,7 @@ class BasicInfo extends Component {
     return (
       <div>
         <div className="section">
-          <h2>Total tweets:</h2>
+          <h2>Total tweets today:</h2>
           <p className="sub_title">{this.state.total_tweets ? this.state.total_tweets[0].total.toLocaleString() + " tweets by " + this.state.total_tweets[0].users.toLocaleString() : ""} unique users</p>
           { this.renderSparkline() }
         </div>

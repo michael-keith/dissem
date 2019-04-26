@@ -60,7 +60,7 @@ class ArticleList extends Component {
 
   render() {
     return (
-      <div id="article_list" class="section">
+      <div id="article_list" className="section">
         <h2>Most tweeted articles {this.state.time_range === "daily" ? "in the last 24 hours" : this.state.time_range === "hourly" ? "in the last hour" : "in the last week"}:</h2>
         <ul className="nav nav-tabs">
           <li className="nav-item">

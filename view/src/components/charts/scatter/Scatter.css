@@ -14,10 +14,14 @@
   position: absolute;
   padding: 5px 5px 5px 5px;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   pointer-events: none;
   background-color: #FFF;
   border-left-style: solid;
   border-left-width: 7px;
   max-width: 300px;
+}
+
+.scatter_tooltip .badge {
+  font-size: 14px;
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import * as d3 from "d3";
+import * as d3 from "d3"
+
+import './Barchart.css'
 
 class Timeline extends Component {
 
@@ -47,6 +49,30 @@ class Timeline extends Component {
 
     svg.append('g')
     .call(yAxis)
+
+    const make_x_gridlines = () => {
+      return d3.axisBottom(x)
+    }
+
+    const make_y_gridlines = () => {
+      return d3.axisLeft(y)
+    }
+
+    svg.append("g")
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + (height)  +")")
+    .call(make_x_gridlines()
+    .tickSize(-height + margin.bottom + margin.top)
+    .tickSizeOuter(0)
+    .tickFormat(""))
+
+    svg.append("g")
+    .attr("class", "grid")
+    .attr("transform", "translate(0,0)")
+    .call(make_y_gridlines()
+    .tickSize(-width)
+    .tickSizeOuter(0)
+    .tickFormat(""))
 
     svg.selectAll("rect")
     .data(data)

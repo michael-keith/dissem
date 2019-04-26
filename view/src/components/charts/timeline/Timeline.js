@@ -24,19 +24,11 @@ class Timeline extends Component {
 
   componentDidMount() {
     if(!this.props.width) { this.width = document.getElementById(this.props.id).clientWidth }
-
-    fetch(this.props.data_url)
-    .then(response => response.json() )
-    .then(data => this.setState({ timeline_data: data }) )
-    .then( () => this.drawChart() )
-    .catch(e => console.log(e))
-  }
-
-  updateChart() {
+    this.drawChart()
   }
 
   drawChart() {
-    let data = this.state.timeline_data
+    let data = this.props.data
 
     const margin = {top: 40, right: 25, bottom: 20, left: 10}
     const line_margin = {top: 90, left: 120}
@@ -118,7 +110,7 @@ class Timeline extends Component {
     .data( (d,i) => d.articles )
     .enter()
     .append("circle")
-    .attr("class", (d,i) => x(parseTime(d.date)) <= line_margin.left ? "timeline_circle hide" : "timeline_circle" ) //Hide if outside x axis range
+    .attr("class", (d,i) => x(parseTime(d.date)) <= line_margin.left ? "timeline_circle hide" : "timeline_circle " + d.source ) //Hide if outside x axis range
     .attr("cx", (d,i) => x(parseTime(d.date)) )
     .attr("cy", function(d, i) {
       if( d.date_pos > 10 ) { return ((+this.parentNode.getAttribute("index") + 1) * line_margin.top) }
@@ -163,7 +155,7 @@ class Timeline extends Component {
   }
 
   render(){
-    return <div id={this.props.id}>LOADING</div>
+    return <div id={this.props.id}></div>
   }
 }
 
