@@ -8,7 +8,10 @@
     "name": "BBC",
     "url": "bbc.com/news",
     "track": "bbc com news",
-    "conversion": "bbc.co.uk/news"
+    "conversion": {
+      "pattern": "https://www.bbc.com/news/(.+)",
+      "output": "https://www.bbc.co.uk/news/$1"
+    }
   },
   {
     "name": "BBC",
@@ -48,6 +51,19 @@
   {
     "name": "Daily Mail",
     "url": "dailymail.co.uk",
-    "track": "dailymail co uk"
+    "track": "dailymail co uk",
+    "conversion": {
+      "pattern": "https://www.dailymail.co.uk/.+/article\\-(\\d+).*",
+      "output": "https://www.dailymail.co.uk/news/article-$1"
+    }
+  },
+  {
+    "name": "Daily Mail",
+    "url": "mol.im/a/",
+    "track": "mol im a",
+    "conversion": {
+      "pattern": "https://mol.im/a/(\\d+).*",
+      "output": "https://www.dailymail.co.uk/news/article-$1"
+    }
   }
 ]
