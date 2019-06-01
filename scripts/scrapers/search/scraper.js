@@ -33,8 +33,8 @@ const client = new Twitter({
 })
 
 function get_articles() {
-  let ts_min = (Math.floor(+new Date()/1000)) - 86400
-  let sql = "SELECT source, link FROM twitter WHERE link IS NOT NULL AND timestamp > ? GROUP BY link, source DESC"
+  let ts_min = (Math.floor(+new Date()/1000)) - 259200
+  let sql = "SELECT count(*) as total, source, link FROM twitter WHERE link IS NOT NULL AND timestamp > ? GROUP BY link, source ORDER BY total DESC LIMIT 2500"
   let inserts = [ts_min]
   sql = mysql.format(sql, inserts)
 

@@ -40,11 +40,11 @@ class Tweet {
       if(this.type != "quotret") {await this.insert(source, source)}
     })
 
-    console.log(this.id_str)
-    console.log(this.type + ": " + this.text)
-    console.log(this.sources)
-    console.log(this.quoted_sources)
-    console.log("--------------------------------")
+    // console.log(this.id_str)
+    // console.log(this.type + ": " + this.text)
+    // console.log(this.sources)
+    // console.log(this.quoted_sources)
+    // console.log("--------------------------------")
 
   }
 
@@ -130,10 +130,17 @@ class Tweet {
     let s = []
     key.forEach( (url) => {
       sources.forEach( (source) => {
-        if(url.expanded_url.includes(source.url) && url.expanded_url != "https://www." + source.url && url.expanded_url != "http://www." + source.url){
+        if( (url.expanded_url.includes("." + source.url) || url.expanded_url.includes("://" + source.url)) && url.expanded_url != "https://www." + source.url && url.expanded_url != "http://www." + source.url && url.expanded_url != "https://" + source.url && url.expanded_url != "jobs." + source.url){
           //Remove extra url params
+          url.expanded_url = url.expanded_url.replace("http://", "https://")
           let n = url.expanded_url.indexOf('?')
-          url.expanded_url = url.expanded_url.substring(0, n != -1 ? n : url.expanded_url.length)
+          url.expanded_url = url.expanded_url = url.expanded_url.substring(0, n != -1 ? n : url.expanded_url.length)
+          url.expanded_url = url.expanded_url.replace(/https\:\/\/www\.google\..+\/amp\/s\/amp\./, "https://www.")
+          url.expanded_url = url.expanded_url.replace(/https\:\/\/www\.google\..+\/amp\/s\/www./, "https://www.")
+          url.expanded_url = url.expanded_url.replace("https://amp.", "https://www.")
+          url.expanded_url = url.expanded_url.replace("https://web.archive.org/web/20150912124604/", "https://www.")
+          url.expanded_url = url.expanded_url.replace("/amp/", "/")
+          url.expanded_url = url.expanded_url.replace("#", "")
           //Conversion
           if(source.conversion) {url.expanded_url = url.expanded_url.replace(new RegExp(source.conversion.pattern, 'i'), source.conversion.output)}
           s.push({"source": source.name, "link": url.expanded_url})
