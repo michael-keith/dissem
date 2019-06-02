@@ -30,7 +30,7 @@ class ArticleList extends Component {
   changeData(time_range) {
     if(time_range !== this.state.time_range) {
       this.setState({data: '', loading: true})
-      fetch(config.api_url + "/list/" + time_range)
+      fetch(config.api_url + "list/" + time_range)
       .then(response => response.json() )
       .then(data => {
         this.setState({ data: data, loading: false, time_range: time_range })

@@ -29,7 +29,7 @@ class Multiline {
   }
 
   set(start_time, time_format) {
-    let query_string = "SELECT source, DATE_FORMAT(date, ?) AS df, count(source) as total FROM twitter WHERE timestamp > ? AND timestamp < ? GROUP BY source, df"
+    let query_string = "SELECT source, DATE_FORMAT(date, ?) AS df, count(source) as total FROM twitter WHERE type = 'tweet' AND timestamp > ? AND timestamp < ? GROUP BY source, df"
     let inserts = [
       time_format,
       start_time,

@@ -29,7 +29,7 @@ class Barchart {
   }
 
   setBarchart(start_time) {
-    let query_string = "SELECT source, count(source) as total FROM twitter WHERE timestamp > ? AND timestamp < ? GROUP BY source ORDER BY total DESC"
+    let query_string = "SELECT source, count(source) as total FROM twitter WHERE type = 'tweet' AND timestamp > ? AND timestamp < ? GROUP BY source ORDER BY total DESC"
     let inserts = [
       start_time,
       Math.floor(Date.now() / 1000)

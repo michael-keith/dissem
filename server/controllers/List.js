@@ -29,10 +29,10 @@ class List {
   }
 
   set(start, time_range) {
-    let query_string = 'SELECT COUNT(*) AS total, COUNT(DISTINCT screen_name) AS users, twitter.source, twitter.link, articles.title, articles.date\
+    let query_string = "SELECT COUNT(*) AS total, COUNT(DISTINCT screen_name) AS users, twitter.link, twitter.source, articles.title, articles.date\
     FROM twitter LEFT JOIN articles ON twitter.link = articles.link\
-    WHERE twitter.timestamp > ? AND twitter.timestamp < ?\
-    GROUP BY link ORDER BY total DESC limit 5'
+    WHERE type = 'tweet' AND twitter.timestamp > ? AND twitter.timestamp < ?\
+    GROUP BY link, source, title, date ORDER BY total DESC limit 5"
     let inserts = [
       start,
       Math.floor(Date.now() / 1000)

@@ -23,7 +23,7 @@ class BasicInfo {
   }
 
   setTotalData(start_time) {
-    let query_string = "SELECT COUNT(*) as total, COUNT(DISTINCT screen_name) as users FROM twitter WHERE timestamp > ? AND timestamp < ?"
+    let query_string = "SELECT COUNT(*) as total, COUNT(DISTINCT screen_name) as users FROM twitter WHERE type = 'tweet' AND timestamp > ? AND timestamp < ?"
     let inserts = [
       start_time,
       Math.floor(Date.now() / 1000)
@@ -39,7 +39,7 @@ class BasicInfo {
   }
 
   setSparklineData(start_time) {
-    let query_string = "SELECT DATE_FORMAT(date, '%Y-%m-%d %H') AS df, count(*) as total FROM twitter WHERE timestamp > ? AND timestamp < ? GROUP BY df"
+    let query_string = "SELECT DATE_FORMAT(date, '%Y-%m-%d %H') AS df, count(*) as total FROM twitter WHERE type = 'tweet' AND timestamp > ? AND timestamp < ? GROUP BY df"
     let inserts = [
       start_time,
       Math.floor(Date.now() / 1000)

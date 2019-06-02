@@ -29,7 +29,7 @@ class Scatter {
   }
 
   set(start_time) {
-    let query_string = "SELECT twitter.source, DATE_FORMAT(articles.date, '%Y-%m-%d %H:%i') AS df, articles.title, twitter.link, COUNT(*) AS total FROM twitter LEFT JOIN articles ON twitter.link = articles.link WHERE articles.timestamp > ? AND articles.timestamp < ? GROUP BY twitter.link  ORDER BY total DESC LIMIT 100"
+    let query_string = "SELECT twitter.source, DATE_FORMAT(articles.date, '%Y-%m-%d %H:%i') AS df, articles.title, twitter.link, COUNT(*) AS total FROM twitter LEFT JOIN articles ON twitter.link = articles.link WHERE type = 'tweet' AND articles.timestamp > ? AND articles.timestamp < ? GROUP BY link, title, source, df ORDER BY total DESC LIMIT 100"
     let inserts = [
       start_time,
       Math.floor(Date.now() / 1000)

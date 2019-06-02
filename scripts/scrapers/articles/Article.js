@@ -62,7 +62,7 @@ class Article {
   }
 
   initialAdd() {
-    let sql = "INSERT INTO articles(source, title, link, category, date, timestamp) VALUES(?,?,?,?,?,?)";
+    let sql = "INSERT IGNORE INTO articles(source, title, link, category, date, timestamp) VALUES(?,?,?,?,?,?)";
     let inserts = [this.source, this.title, this.link, this.category, this.date, this.timestamp];
     sql = mysql.format(sql, inserts);
     pool.query(sql, error => {
