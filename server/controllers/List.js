@@ -7,6 +7,7 @@ class List {
       console.log("Getting list");
       this.setDaily()
       this.setHourly()
+      this.setWeekly()
     }, 120000)
   }
 
