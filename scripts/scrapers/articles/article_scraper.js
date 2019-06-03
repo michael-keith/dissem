@@ -5,9 +5,9 @@ const parseString = require('xml2js').parseString
 
 const Article = require('./Article')
 
-const url_data = require('./scraper_data.json')
+const url_data = require('../json/rss_feeds.json')
 
-function get_articles( metadata ) {
+function get_articles(metadata) {
   request(metadata.url, (error, response, body) => {
     parseString(body, (err, result) => {
       if(result && result.rss.channel[0].item) {
@@ -16,15 +16,15 @@ function get_articles( metadata ) {
           article.setSource(metadata.source)
           article.setTitle(article_data.title[0])
           article.setLink(article_data.link)
-          article.setCategory(metadata.category)
           article.setDate(article_data.pubDate)
-          article.manageUpdate()
+          article.add()
         })
       }
     })
   })
 }
 
+console.log("Last run" + new Date())
 url_data.forEach(get_articles)
 setInterval( () => {
   url_data.forEach(get_articles)

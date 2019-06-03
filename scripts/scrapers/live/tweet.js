@@ -130,7 +130,7 @@ class Tweet {
     let s = []
     key.forEach( (url) => {
       sources.forEach( (source) => {
-        if( (url.expanded_url.includes("." + source.url) || url.expanded_url.includes("://" + source.url)) && url.expanded_url != "https://www." + source.url && url.expanded_url != "http://www." + source.url && url.expanded_url != "https://" + source.url && url.expanded_url != "jobs." + source.url){
+        if( (url.expanded_url.includes("." + source.url) || url.expanded_url.includes("://" + source.url)) && url.expanded_url != "https://www." + source.url && url.expanded_url != "http://www." + source.url && url.expanded_url != "https://" + source.url && (!url.expanded_url.includes("http://jobs.") || !url.expanded_url.includes("https://jobs.") )){
           //Remove extra url params
           url.expanded_url = url.expanded_url.replace("http://", "https://")
           let n = url.expanded_url.indexOf('?')

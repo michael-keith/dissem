@@ -47,7 +47,7 @@ class ArticleList extends Component {
           <div className={'item ' + item.source}>
             <span className={"badge " + item.source}>{item.source}</span>
             <a className="item_title" href={item.link}>{item.title ? item.title : item.link}</a>
-            <p className="item_sub">{new Date(item.date).toLocaleDateString("en-UK", date_options)}</p>
+            <p className="item_sub">{item.date ? new Date(item.date).toLocaleDateString("en-UK", date_options) : ""}</p>
             <p className="item_sub"><b>{item.total}</b> tweets from <b>{item.users}</b> {item.users > 1 ? "users" : "user"}</p>
             <Spark id={'list_spark_' + index} data={item.spark} time_range={this.state.time_range} source={item.source} />
           </div>

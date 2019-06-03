@@ -2,12 +2,14 @@ require('dotenv').config();
 
 const mysql = require('mysql');
 const pool = mysql.createPool({
-  connectionLimit : 10,
+  connectionLimit : 100,
   host            : process.env.DB_HOST,
   user            : process.env.DB_USER,
   password        : process.env.DB_PASS,
   database        : process.env.DB_DATABASE
-});
+})
+
+const sources = require('../json/sources.json')
 
 class Article {
   constructor() {
@@ -22,11 +24,10 @@ class Article {
   }
 
   setLink(link) {
-    this.link = link
-  }
-
-  setCategory(category) {
-    this.category = category
+    this.link = link[0]
+    sources.forEach( (source) => {
+      if(source.conversion) {this.link = this.link.replace(new RegExp(source.conversion.pattern, 'i'), source.conversion.output)}
+    })
   }
 
   setDate(date = false) {
@@ -36,40 +37,13 @@ class Article {
     }
   }
 
-  manageUpdate() {
-    this.checkExists().then(result => {
-      if(!result) {
-        console.log("ADDING ARTICLE: " + this.title);
-        this.initialAdd();
-      }
-      else {
-        console.log("ALREADY EXISTS: " + this.title)
-      };
-    }).catch((err) => setImmediate(() => { throw err; }));
-  }
-
-  checkExists() {
-    let sql = "SELECT * FROM articles WHERE link = ?"
-    let inserts = [this.link];
-    sql = mysql.format(sql, inserts);
-    return new Promise((resolve, reject) => {
-      pool.query(sql, (error, results, fields) => {
-        if (error) throw error;
-        if(results[0]) { resolve(true); }
-        else { resolve(false); }
-      })
-    });
-  }
-
-  initialAdd() {
+  add() {
     let sql = "INSERT IGNORE INTO articles(source, title, link, date, timestamp) VALUES(?,?,?,?,?)";
     let inserts = [this.source, this.title, this.link, this.date, this.timestamp];
     sql = mysql.format(sql, inserts);
-    pool.query(sql, error => {
-      if (error) console.log(error)
-    });
+    pool.query(sql, error => {if (error) console.log(error)})
   }
 
-};
+}
 
 module.exports = Article;
