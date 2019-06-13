@@ -20,6 +20,14 @@ let track_words = ""
 sources.forEach( (source) => track_words = source.track + ", " + track_words )
 console.log("TRACKING: " + track_words)
 
+//Stall checker
+let i = 0
+setInterval( () => {
+  console.log(i + " tweets per minute @ (" + new Date() + ")")
+  if(i == 0) {process.exit()}
+  i = 0
+}, 60000)
+
 //Start stream
 let stream = client.stream('statuses/filter', {track: track_words})
 
@@ -27,21 +35,25 @@ stream.on('data', (data) => {
   if(data.id_str != undefined) {
     tweet = new Tweet(data)
     tweet.process()
+    i++
   }
   else {console.log(data)}
 })
 
 stream.on('error', (error) => {
+  console.log("DEBUG - ERROR: " + new Date())
   throw error
   process.exit()
 })
 
 stream.on('end', (res) => {
+  console.log("DEBUG - ENDED: " + new Date())
   console.log(res)
   process.exit()
 })
 
 stream.on('destroy', (res) => {
+  console.log("DEBUG - Destroy: " + new Date())
   console.log(res)
   process.exit()
 })
